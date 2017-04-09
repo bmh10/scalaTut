@@ -81,10 +81,22 @@ object ComplexNumbers {
 }
 
 // So that we don't have to use (), we can define re and im without parenthesis.
-class Complex(real: Double, imaginary: Double) {
+class Complex2(real: Double, imaginary: Double) {
   def re = real
   def im = imaginary
 }
 
 // Inheritance and overriding
 
+// All classes inherit from a super-class
+// When no super-class specified, scala.AnyRef is used implicitly
+// Overriding requires mandatory override keyword
+
+class Complex3(real: Double, imaginary: Double) {
+  def re = real
+  def im = imaginary
+  override def toString() = "" re + "+" + im + "i"
+
+// Case classes and pattern matching
+
+}
