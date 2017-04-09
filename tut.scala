@@ -51,3 +51,23 @@ object Timer {
 }
 
 // Anonymous functions
+
+object TimerAnon {
+  def oncePerSecond(callback: () => Unit) {
+    while (true) { callback(); Thread sleep 1000 }
+  }
+  
+  def main(args: Array[String]) {
+    oncePerSecond(() => println("time flies...")) // Anon function
+  }
+}
+
+// Classes
+
+// Classes can have params
+
+class Complex(real: Double, imaginary: Double) {
+  def re() = real
+  def im() = imaginary
+}
+
