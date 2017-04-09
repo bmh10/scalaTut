@@ -67,7 +67,24 @@ object TimerAnon {
 // Classes can have params
 
 class Complex(real: Double, imaginary: Double) {
-  def re() = real
+  def re() = real      // Note: no return types
   def im() = imaginary
 }
+
+// Methods w/o args
+
+object ComplexNumbers {
+  def main(args: Array[String]) {
+    val c = new Complex(1.2, 3.4)
+    println("Imaginary part: " + c.im())
+  }
+}
+
+// So that we don't have to use (), we can define re and im without parenthesis.
+class Complex(real: Double, imaginary: Double) {
+  def re = real
+  def im = imaginary
+}
+
+// Inheritance and overriding
 
