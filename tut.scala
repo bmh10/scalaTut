@@ -30,4 +30,24 @@ object FrenchDate {
 
 // Everything is an object
 
+// Numbers and functions are objects unlike in Java
+// Scala's lexer using longest match rule for tokens
 
+object Timer {
+  def oncePerSecond(callback: () => Unit) { // Param is function. Unit same as void
+    while (true) {
+      callback()
+      Thread sleep 1000
+    }
+  }
+
+  def timeFlies() {
+    println("time flies...) // Predefined println rather that System.out
+  }
+
+  def main(args: Array[String]) {
+    oncePerSecond(timeFlies);
+  }
+}
+
+// Anonymous functions
