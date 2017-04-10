@@ -96,7 +96,20 @@ class Complex3(real: Double, imaginary: Double) {
   def re = real
   def im = imaginary
   override def toString() = "" re + "+" + im + "i"
+}
 
 // Case classes and pattern matching
 
-}
+abstract class Tree
+case class Sum(l: Tree, r: Tree) extends Tree
+case class Var(n: String) extends Tree
+case Class Const(v: Int) extends Tree
+
+// Case classes are different from standard classes in that:
+// new keyword not mandatory to create instances of these classes
+// getter funcs are automatically defined
+// default definitions for equals and hashCode are provided which work on the structure of the instances
+// default toString implementation prints value in 'source form'
+// instances of these classes can be decomposed through pattern matching
+
+
