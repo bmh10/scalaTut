@@ -112,4 +112,18 @@ case Class Const(v: Int) extends Tree
 // default toString implementation prints value in 'source form'
 // instances of these classes can be decomposed through pattern matching
 
+type Environment = String => Int
 
+// Pattern matching example:
+def eval(t: Tree, env: Environment): Int = t match {
+  case Sum(l, r) => eval(l, env) + eval(r, env)
+  case Var(n)    => env(n)
+  case Const(v)  => v
+}
+
+// Another pattern matching example:
+def derive(t: Tree, v: String): Tree = t match {
+  case Sum(l,r) => Sum(derive(l,v), derive(r,v))
+  case Var(n) if (v == n) => Const(1)             // Contains extra guard condition
+  case _ => Const(0)                              // _ matches any value
+}
