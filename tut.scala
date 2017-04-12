@@ -127,3 +127,23 @@ def derive(t: Tree, v: String): Tree = t match {
   case Var(n) if (v == n) => Const(1)             // Contains extra guard condition
   case _ => Const(0)                              // _ matches any value
 }
+
+def mainPatternMatch(args: Array[String]) {
+  val exp: Tree = Sum(Sum(Var("x"), Var("x")), Sum(Const(7), Var("y")))
+  val env: Environment = { case "x" => 5 case "y" => 7 }
+  println("Expression: " + exp)
+  println("Evaluation with x=5, y=7: " + eval(exp, env))
+  println("Derivative relative to x:\n " + derive(exp, "x"))
+  println("Derivative relative to y:\n " + derive(exp, "y"))
+}
+
+// Traits
+
+// In addition to inheriting from super-class, Scala class can import code from one or several traits.
+
+trait Ord {
+  def <  (that: Any): Boolean
+  def <= (that: Any) = this < that || this == that
+  def >  (that: Any): !(this <= that)
+  def >= (that: Any): !(this < that)
+}
