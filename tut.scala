@@ -147,3 +147,11 @@ trait Ord {
   def >  (that: Any): !(this <= that)
   def >= (that: Any): !(this < that)
 }
+
+class Date(y: Int, m: Int, d: Int) extends Ord {
+  def year = y
+  def month = m
+  def day = d
+
+  override def toString(): String = year + "-" + month + "-" + day
+}
