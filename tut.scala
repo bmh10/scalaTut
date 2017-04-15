@@ -171,3 +171,12 @@ class Date(y: Int, m: Int, d: Int) extends Ord {
 }
 
 // Genericity
+
+class Reference[T] {
+  private var contents: T = _ // Default value
+
+  def set(value: T) { contents = value }
+  def get: T = contents
+}
+
+
